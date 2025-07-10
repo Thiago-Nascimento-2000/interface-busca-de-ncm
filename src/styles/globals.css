@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+:root {
+  --background-white: #ffffff;
+  --foreground: #171717;
+
+  --green-100: #5DB900;
+  --green-50: #5DB900;
+  --black-20: #000;
+  --white: #fff;
+}
+
+body {
+background: #e8e6e6;
+background: linear-gradient(159deg, rgba(232, 230, 230, 1) 100%, rgba(94, 94, 94, 1) 80%, rgba(196, 196, 196, 1) 100%);
+  font-family: Inter, Helvetica, sans-serif;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
