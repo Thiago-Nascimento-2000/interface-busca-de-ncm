@@ -16,3 +16,4 @@ export async function teste(ncmNumber: string) {
     console.log('valor', ncmNumber)
 }
 
+/*comentario teste */
