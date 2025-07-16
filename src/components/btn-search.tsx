@@ -1,21 +1,14 @@
 import { IoSearchOutline } from "react-icons/io5";
-import { teste } from "./teste";
 
 type BotaoDePesquisaProps = {
-    valorinput: string;
+    valorRetorno: (valor: string) => void;
 };
 
-export function BotaoDePesquisa({ valorinput }: BotaoDePesquisaProps) {
-    function handlerBtn(event: React.MouseEvent<HTMLButtonElement>) {
-        event.preventDefault();
+export function BotaoDePesquisa({ valorRetorno }: BotaoDePesquisaProps) {
 
-        if(valorinput.length === 8) {
-            console.log('valor correto');
-            teste(valorinput);
-        } else {
-            console.log('valor incorreto');
-        }
-        console.log('valor input:', valorinput);
+    function handlerBtn(event: any) {
+        event.preventDefault();
+        valorRetorno(event)
     }
 
     return (
@@ -23,7 +16,7 @@ export function BotaoDePesquisa({ valorinput }: BotaoDePesquisaProps) {
             onClick={handlerBtn}
             className="bg-green-800/40 bg-gradient-to-l from-green-700/40 to-green-500/30 backdrop-blur-lg rounded-2xl p-5 text-white hover:cursor-pointer hover:bg-green-800/50 flex content-center h-fit"
         >
-            Consultar &emsp; <IoSearchOutline className="text-2xl"/>
+            Consultar &emsp; <IoSearchOutline className="text-2xl" />
         </button>
     );
 }
