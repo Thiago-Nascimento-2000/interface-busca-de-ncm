@@ -13,7 +13,7 @@ export async function Api(ncm: any) {
     });
     if (!res.ok) {
       console.log('error');
-      return null;
+      return 0;
     }
     const data = await res.json();
     console.log('Resposta da API:', data);

@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { ContainerInputs } from "@/components/Container-Inputs-e-button";
+import { Clientes } from "@/components/ApiClientes";
 
 export default function Home() {
   return (

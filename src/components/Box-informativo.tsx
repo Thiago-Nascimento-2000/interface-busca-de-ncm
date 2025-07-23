@@ -1,34 +1,48 @@
-type RetornoApiProps = {
-    Ano_Ato_Ini: string,
-    Codigo: string,
-    Data_Fim: string,
-    Data_Inicio: string,
-    Descricao: string,
-    Numero_Ato_Ini: string,
-    Tipo_Ato_Ini: string
+import { RetornoApiProps } from "./Container-Inputs-e-button"
+
+
+type BoxInformationsProsp = {
+    data: RetornoApiProps | 0 | null | undefined;
 }
 
-export function Boxinformativo(RetornoApi: RetornoApiProps) {
-    console.log('props', RetornoApi.Codigo);
+export function Boxinformativo({ data }: BoxInformationsProsp) {
 
-function respostaFormatada(): string {
-  return `
-    Resposta da API:
-    - Código NCM: ${RetornoApi.Codigo}
-    - Descrição: ${RetornoApi.Descricao}
-    - Ato Inicial: ${RetornoApi.Tipo_Ato_Ini} nº ${RetornoApi.Numero_Ato_Ini}/${RetornoApi.Ano_Ato_Ini}
-    - Vigência: de ${RetornoApi.Data_Inicio} até ${RetornoApi.Data_Fim}
-`.trim();
-}
+    const valor = (
+        <ul className="overflow-hidden">
+            <li className="text-gray-500 font-normal">
+                NCM: <span className="font-normal">{data?.Codigo}</span>
+            </li>
+            <li className="text-gray-500 font-normal">
+                Descrição: <span className="font-normal">{data?.Descricao}</span>
+            </li>
+            <li className="text-gray-500 font-normal">
+                Data de Início: <span className="font-normal">{data?.Data_Inicio}</span>
+            </li>
+            <li className="text-gray-500 font-normal">
+                Data de Fim: <span className="font-normal"></span>
+            </li>
+        </ul>
+    );
 
+    if (data === 0) {
+        return (
+            <>
+                <hr className="text-gray-100 w-full flex"></hr>
+                <div
+                    id="box-info"
+                    className=" text-gray-400 text-2xl w-auto m-5 h-50 bg-gray-200 rounded-2xl p-10">
+                    <span className="text-red-500">NCM Invalido</span>
+                </div>
+            </>
+        )
+    };
     return (
         <>
             <hr className="text-gray-100 w-full flex"></hr>
             <div
                 id="box-info"
-                className=" text-gray-400 text-2xl w-auto m-5 h-50 bg-gray-200 rounded-2xl p-10">
-                <pre>{respostaFormatada()}</pre>
-                {RetornoApi.Codigo}
+                className=" text-gray-400 text-2xl w-auto m-5 h-50 bg-gray-200 rounded-2xl p-10 overflow-hidden">
+                {valor}
             </div>
         </>
     )
