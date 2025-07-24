@@ -1,9 +1,9 @@
+'use client'
 import { useEffect, useRef, useState } from "react";
 import { Api } from "./Api";
 import { Clientes } from "./ApiClientes";
 import { IoSearchOutline } from "react-icons/io5";
-import Swal from 'sweetalert2';
-import { MeuComponente } from "./alert";
+import { toast } from "react-toastify";
 
 
 export type RetornoApiProps = {
@@ -36,11 +36,13 @@ export function ContainerInputs() {
             return;
         }
         if (valor !== undefined && valor !== "") {
-            if (/^\d{1,7}$/.test(valor) || /^\d{9,}$/.test(valor)) {
-                alert("Campo NCM Deve Conter 8 Digitos, Verifique e Tente Novamente!");
+            if (/^\d{1,6}$/.test(valor) || /^\d{9,}$/.test(valor)) {
+                toast.warn('Campo NCM Deve ser Preenchido com 8 Digitos!', {
+                    position: 'top-center',
+                    autoClose: 2000,
+                });
             } else {
                 Api(valor).then((data) => setData(data));
-                console.log("Inválido!");
             }
         }
     }, [isFetch]);
@@ -53,6 +55,7 @@ export function ContainerInputs() {
                     <div className="relative flex gap-2">
                         <input
                             value={valor}
+                            pattern="^\d{1,8}$"
                             onChange={(e) => {
                                 e.preventDefault();
                                 handleValue(e.target.value)
@@ -129,13 +132,13 @@ export function ContainerInputs() {
                         className=" text-gray-400 text-2xl w-auto m-5 bg-gray-200 rounded-2xl p-5 overflow-hidden">
                         <ul className="overflow-hidden">
                             <li className="text-gray-500 font-normal bg-gray-300 p-1 pl-5 m-1 rounded-xl">
-                                NCM: <span className="font-normal text-gray-600">{data?.Codigo}</span>
+                                NCM: <span className="font-normal text-gray-600"></span>
                             </li>
                             <li className="text-gray-500 font-normal bg-gray-300 p-1 pl-5 m-1 rounded-xl">
-                                Descrição: <span className="font-normal text-gray-600">{data?.Descricao}</span>
+                                Descrição: <span className="font-normal text-gray-600"></span>
                             </li>
                             <li className="text-gray-500 font-normal bg-gray-300 p-1 pl-5 m-1 rounded-xl">
-                                Data de Início: <span className="font-normal text-gray-600">{data?.Data_Inicio}</span>
+                                Data de Início: <span className="font-normal text-gray-600"></span>
                             </li>
                         </ul>
                     </pre>

@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="pt-BR">
       <Head />
+      <title>NCMFinder</title>
       <body className="antialiased">
         <Main />
         <NextScript />

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiMailSend } from "react-icons/bi";
-import { IoSearchOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
+import { ToastProgresso } from "./alert";
 
 export async function ApiClientes(nome: any, email: any) {
   const URL = 'http://192.168.51.252:5000/cliente';
@@ -48,14 +49,20 @@ export function Clientes() {
   function enviarAPI() {
     const clienteSelecionado = listaClientes.find(cliente => cliente.nome === valorInput);
     if (!email || email.trim() === "") {
-      alert("Preencha o campo de e-mail antes de continuar!");
+      toast.warn('Preencha o campo de e-mail antes de continuar!', {
+        position: 'top-center',
+        autoClose: 2000,
+      });
       return;
     }
     if (clienteSelecionado) {
       ApiClientes(valorInput, email);
-      console.log("mandando para api")
+      ToastProgresso();
     } else {
-      alert("Selecione a loja antes de continuar e verifique se o nome está digitado corretamente assim como na listagem!");
+      toast.warn('Selecione a loja antes de continuar e verifique se o nome está digitado corretamente assim como na listagem!', {
+        position: 'top-center',
+        autoClose: 2000,
+      });
     }
   }
 
@@ -73,6 +80,7 @@ export function Clientes() {
             <div className="relative" >
               <input
                 type="text"
+                required
                 list="clientes"
                 value={valorInput}
                 onChange={(e) => {
@@ -124,3 +132,4 @@ export function Clientes() {
     </>
   )
 }
+

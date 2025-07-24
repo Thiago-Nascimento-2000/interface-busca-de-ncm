@@ -1,11 +1,33 @@
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
-export function MeuComponente() {
-  const mostrarAlerta = () => {
-    Swal.fire({
-      title: 'Tudo certo!',
-      text: 'Seu alerta está funcionando 😄',
-      icon: 'success',
-      confirmButtonText: 'Fechar'
+export function ToastProgresso() {
+  const toastId = toast.loading('Enviando e-mail..', {
+    position: 'top-center',
+    isLoading: true,
+  });
+
+  let progress = 0;
+
+  const interval = setInterval(() => {
+    progress += 10;
+
+    toast.update(toastId, {
+      render: `Enviando e-mail... ${progress}%`,
+      progress: progress / 100,
+      isLoading: true,
+      position: 'top-center',
     });
-  }};
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      toast.update(toastId, {
+        render: 'Uma planilha de NCM Inválidos foi enviada para sua caixa de entrada!',
+        type: 'success',
+        isLoading: false,
+        hideProgressBar: true,
+        autoClose: 5000,
+        progress: 1,
+      });
+    }
+  }, 100);
+}
