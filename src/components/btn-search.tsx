@@ -14,7 +14,7 @@ export function BotaoDePesquisa({ valorRetorno }: BotaoDePesquisaProps) {
     return (
         <button
             onClick={handlerBtn}
-            className="bg-green-800/40 bg-gradient-to-l from-green-700/40 to-green-500/30 backdrop-blur-lg rounded-2xl p-5 text-white hover:cursor-pointer hover:bg-green-800/50 flex content-center h-fit"
+            className="bg-green-800/40 bg-gradient-to-l from-green-700/40 to-green-500/30 backdrop-blur-lg rounded-2xl p-5 text-white hover:cursor-pointer hover:bg-green-800/50 content-center w-40 flex justify-center"
         >
             Consultar &emsp; <IoSearchOutline className="text-2xl" />
         </button>
