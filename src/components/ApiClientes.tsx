@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { BiMailSend } from "react-icons/bi";
 import { toast } from "react-toastify";
 import { ToastProgresso } from "./alert";
@@ -38,8 +38,31 @@ export function Clientes() {
     { key: 1, nome: "sao_paulo" },
     { key: 2, nome: "panela_cheia" },
     { key: 3, nome: "palmital" },
-    { key: 4, nome: "center_rocha" },
-    { key: 5, nome: "teste" }
+    { key: 4, nome: "rocha" },
+    { key: 5, nome: "macri" },
+    { key: 6, nome: "taismani" },
+    { key: 7, nome: "louveira" },
+    { key: 8, nome: "beirario" },
+    { key: 9, nome: "djd" },
+    { key: 10, nome: "altospalmital" },
+    { key: 11, nome: "ulian" },
+    { key: 12, nome: "florentino" },
+    { key: 13, nome: "saladao" },
+    { key: 14, nome: "pedrinho" },
+    { key: 15, nome: "pardinhense" },
+    { key: 16, nome: "jordao" },
+    { key: 17, nome: "supercompras" },
+    { key: 18, nome: "nsa" },
+    { key: 19, nome: "roma" },
+    { key: 20, nome: "sidney" },
+    { key: 21, nome: "montini" },
+    { key: 22, nome: "mania" },
+    { key: 23, nome: "manzini" },
+    { key: 24, nome: "avenida" },
+    { key: 25, nome: "temperos_tentacoes" },
+    { key: 26, nome: "jardim" },
+    { key: 27, nome: "pagpoko" },
+    { key: 28, nome: "serverubuntu" }
   ]
 
   function limparCampo() {
@@ -73,10 +96,10 @@ export function Clientes() {
   }
   return (
     <>
-      <section className="border-0 rounded-r-2xl border-gray-700" >
-        <form className="flex content-center gap-2 h-25 justify-start items-center m-5" >
+      <section className="border-0 rounded-r-2xl border-gray-700 mt-5" >
+        <span className="font-semibold font-1x1 text-gray-500 p-5">Envio NCM Invalidos</span>
+        <form className="flex content-center gap-2 h-16 justify-start items-center pl-5 pr-5" >
           <div className="flex flex-col text-gray-500" >
-
             <div className="relative" >
               <input
                 type="text"
@@ -94,7 +117,6 @@ export function Clientes() {
               < label htmlFor="floating_outlined" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 peer-focus:px-2 peer-focus:bg-green-600 peer-focus:rounded-2xl peer-focus: peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1" >
                 Selecione a loja </label>
             </div>
-
 
             < datalist id="clientes" >
 
